@@ -1,0 +1,44 @@
+---
+services:
+  traefik:
+    image: traefik:v2.10.4
+    configs:
+      - source: traefik_toml
+        target: /etc/traefik/traefik.toml
+        uid: "0"
+        gid: "0"
+        # trunk-ignore(yamllint/octal-values)
+        mode: 0440
+      - source: tls_toml
+        target: /etc/traefik/dynamic/tls.toml
+        uid: "0"
+        gid: "0"
+        # trunk-ignore(yamllint/octal-values)
+        mode: 0440
+    labels:
+      traefik.enable: true
+      traefik.http.routers.dashboard.rule: Host(`traefik.${DOMAIN}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+      traefik.http.routers.dashboard.entrypoints: websecure
+      traefik.http.routers.dashboard.service: api@internal
+      traefik.http.routers.dashboard.middlewares: authelia@docker
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/traefik/acme
+    networks:
+      - network
+
+configs:
+  traefik_toml:
+    file: config/traefik.toml
+  tls_toml:
+    file: config/tls.toml
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  acme: {}
