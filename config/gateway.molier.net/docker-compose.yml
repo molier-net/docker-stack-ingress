@@ -1,0 +1,4 @@
+---
+configs:
+  traefik_toml:
+    file: config/gateway.home.molier.net/traefik.toml
