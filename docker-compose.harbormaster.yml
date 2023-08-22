@@ -1,6 +1,0 @@
----
-volumes:
-  acme:
-    driver: local-persist
-    driver_opts:
-      o: "${HM_DATA_DIR}/acme"
