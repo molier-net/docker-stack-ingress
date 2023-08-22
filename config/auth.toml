@@ -1,0 +1,3 @@
+[http.middlewares]
+  [http.middlewares.auth.ipWhiteList]
+    sourceRange = ["127.0.0.1/32"]

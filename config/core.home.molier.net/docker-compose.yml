@@ -1,6 +1,13 @@
 ---
 services:
   traefik:
+    configs:
+      - source: auth_toml
+        target: /etc/traefik/dynamic/auth.toml
+        uid: "0"
+        gid: "0"
+        # trunk-ignore(yamllint/octal-values)
+        mode: 0440
     ports:
       - 80:80
       - 443:443
@@ -10,3 +17,5 @@ services:
 configs:
   traefik_toml:
     file: config/core.home.molier.net/traefik.toml
+  auth_toml:
+    file: config/core.home.molier.net/auth.toml
