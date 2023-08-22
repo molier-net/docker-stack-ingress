@@ -46,7 +46,7 @@
   # Dynamic file configuration backend
   ################################################################
   [providers.file]
-    directory = /etc/traefik/dynamic
+    directory = "/etc/traefik/dynamic"
     watch = true
     
   ################################################################
