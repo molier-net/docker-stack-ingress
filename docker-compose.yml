@@ -20,7 +20,6 @@ services:
       traefik.http.routers.dashboard.rule: Host(`traefik.${HOSTNAME}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
       traefik.http.routers.dashboard.entrypoints: websecure
       traefik.http.routers.dashboard.service: api@internal
-      traefik.http.routers.dashboard.middlewares: authelia@docker
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
