@@ -21,9 +21,7 @@ services:
       traefik.http.routers.dashboard.entrypoints: websecure
       traefik.http.routers.dashboard.service: api@internal
       traefik.http.routers.dashboard.middlewares: authelia@docker
-    ports:
-      - 80:80
-      - 443:443
+
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/traefik/acme
