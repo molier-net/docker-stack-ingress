@@ -60,11 +60,12 @@
 ################################################################
 # Step-CA ACME configuration
 ################################################################
-[certificatesResolvers.letsencrypt.acme]
-  email = "hostmaster@example.com"
-  storage = "/etc/traefik/acme/letsencrypt.json"
-  [certificatesResolvers.letsencrypt.acme.httpChallenge]
+[certificatesResolvers.step-ca.acme]
+  email = "hostmaster@home.molier.net"
+  storage = "/etc/traefik/acme/step-ca.json"
+  caServer = "https://ca.home.molier.net/acme/acme/directory"
+  [certificatesResolvers.step-ca.acme.httpChallenge]
     entryPoint = "web"
-  [certificatesResolvers.letsencrypt.acme.tlsChallenge]
+  [certificatesResolvers.step-ca.acme.tlsChallenge]
 
     
