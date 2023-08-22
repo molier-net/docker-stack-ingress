@@ -24,6 +24,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/traefik/acme
+      - config:/etc/traefik/dynamic
     networks:
       - network
 
@@ -39,3 +40,4 @@ networks:
 
 volumes:
   acme: {}
+  config: {}
