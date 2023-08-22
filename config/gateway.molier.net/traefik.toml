@@ -20,6 +20,9 @@
   [entryPoints.websecure]
     address = ":443"
 
+    [entryPoints.websecure.http.tls]
+      certResolver = "letsencrypt"
+
 ################################################################
 # Traefik logs configuration
 ################################################################
