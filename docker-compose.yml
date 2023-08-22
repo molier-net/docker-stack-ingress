@@ -23,7 +23,6 @@ services:
       traefik.http.routers.dashboard.middlewares: authelia@docker
 
     volumes:
-      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/traefik/acme
     networks:
