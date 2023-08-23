@@ -1,1 +1,1 @@
-# harbormaster-ingress
+# docker-stack-ingress
