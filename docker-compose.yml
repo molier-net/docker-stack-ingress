@@ -36,11 +36,11 @@ services:
 
 configs:
   traefik_toml:
-    file: config/traefik.toml
+    file: ./config/traefik.toml
   tls_toml:
-    file: config/tls.toml
+    file: ./config/tls.toml
   auth_toml:
-    file: config/auth.toml
+    file: ./config/auth.toml
 
 networks:
   network:
