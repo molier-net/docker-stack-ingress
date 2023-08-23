@@ -15,6 +15,12 @@ services:
         gid: "0"
         # trunk-ignore(yamllint/octal-values)
         mode: 0440
+      - source: auth_toml
+        target: /etc/traefik/dynamic/auth.toml
+        uid: "0"
+        gid: "0"
+        # trunk-ignore(yamllint/octal-values)
+        mode: 0440
     labels:
       traefik.enable: true
       traefik.http.routers.dashboard.rule: Host(`traefik.${HOSTNAME}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
@@ -33,6 +39,8 @@ configs:
     file: config/traefik.toml
   tls_toml:
     file: config/tls.toml
+  auth_toml:
+    file: config/auth.toml
 
 networks:
   network:

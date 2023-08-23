@@ -1,13 +1,6 @@
 ---
 services:
   traefik:
-    configs:
-      - source: auth_toml
-        target: /etc/traefik/dynamic/auth.toml
-        uid: "0"
-        gid: "0"
-        # trunk-ignore(yamllint/octal-values)
-        mode: 0440
     ports:
       - 80:80
       - 443:443
