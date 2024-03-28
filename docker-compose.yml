@@ -1,7 +1,7 @@
 ---
 services:
   traefik:
-    image: traefik:v2.10.4
+    image: traefik:2.11.0
     configs:
       - source: traefik_toml
         target: /etc/traefik/traefik.toml
